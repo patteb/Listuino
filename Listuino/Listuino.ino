@@ -6,8 +6,13 @@
 #include "ListuinoPrinter.h"
 
 // Wifi credentials
-const char* ssid="*******";
-const char* password="h********";
+const char* ssid="********";
+const char* password="********";
+
+//DDNS credentials
+const char* ddns_domain="********";
+const char* ddns_username="********";
+const char* ddns_pw="********";
 
 //start instances
 ESP8266WebServer server(1564);
@@ -22,12 +27,13 @@ void setup() {
 
   //setup DDNS
   EasyDDNS.service("strato");
-  EasyDDNS.client(subdomain,domain,pw);
+  EasyDDNS.client(ddns_domain, ddns_username, ddns_pw);
   
   // start server
   server.on("/",[](){server.send(200,"text/html", getHTML(ItemList));}); //landing page as of ListuinoWeb.h
   server.on("/addItem",handleItem);
   server.on("/cutList",handleCut);
+
   server.begin();
 
   //Start new list, mainly for header

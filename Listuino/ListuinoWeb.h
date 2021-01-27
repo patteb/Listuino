@@ -3,6 +3,7 @@ const char* htmlTop="\
     <head>\
         <meta name=viewport content=\"initial-scale=1.0, maximum-scale=1.0, user-scalable=no\" />\
       <title>Listuino landing page</title>\
+      <link href=\"https://i.imgur.com/sp3Rl9M.png\" rel=\"icon\" type=\"image/x-icon\" />\
     </head>\
     <body bgcolor=#3B35E8 style=\"font-family:calibri,sans-serif;\">\
       <div style=\"padding: 10px 20px; margin: 15px 15px; background-color:#2C8FF5;border-radius: 5px 5px 5px 5px;\">\
