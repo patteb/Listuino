@@ -5,6 +5,8 @@
 #include "ListuinoWeb.h"
 #include "ListuinoPrinter.h"
 
+#define CutButton 2
+ 
 // Wifi credentials
 const char* ssid="********";
 const char* password="********";
@@ -39,12 +41,19 @@ void setup() {
   //Start new list, mainly for header
   Printer.printHeader();
 
+  // define button
+  pinMode(CutButton, INPUT_PULLUP);
 }
 
 //MAIN loop
 void loop() {
   server.handleClient();
   EasyDDNS.update(10000);
+  if (digitalRead(CutButton) == LOW){
+      Printer.cutList();
+      ItemList="";
+      while(digitalRead(CutButton) == LOW);
+  }
 }
 
 
